@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   // https://webpack.js.org/configuration/entry-context/#entry
   entry: {
-    "grand-hotel-flex": './src/grand-hotel-flex/index',
+    'grand-hotel-flex': './src/grand-hotel-flex/index',
   },
   mode: 'development', // check if we need it for hot reload
   output: {
@@ -23,10 +23,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader'
-        ],
+        loaders: ['style-loader', 'css-loader'],
         exclude: /node_modules/,
       },
       {
@@ -58,6 +55,18 @@ module.exports = {
           },
           {
             loader: 'html-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img',
+            },
           },
         ],
       },
