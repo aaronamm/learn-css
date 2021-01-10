@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 .menu-icon {
@@ -37,7 +38,7 @@ body {
 .line-1,
 .line-3 {
   width: 1.8rem;
-  transition: width 0.3s;
+  transition: all 0.4s;
 }
 
 .menu-icon:hover .line {
@@ -73,8 +74,8 @@ body {
 
 /* navigation */
 .navigation {
-  margin-left: 8rem;
   position: fixed;
+  left: -32rem;
   width: 40rem;
   height: 100%;
   background: linear-gradient(
@@ -89,6 +90,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  transition: left 0.8s cubic-bezier(1, 0, 0, 1);
 }
 
 .navigation-heading {
@@ -192,11 +194,114 @@ body {
   width: 3rem;
 }
 
-.copyright{
+.copyright {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
+.checkbox:checked ~ .navigation {
+  left: 8rem; /* Show next to sidebar which has width 8 rem  */
+}
 /* end of navigation */
 
 /* end of navbar */
+
+.checkbox:checked ~ .sidebar .line-1 {
+  transform: rotate(-405deg) translate(-5px, 6px);
+  width: 2.5re;
+}
+
+.checkbox:checked ~ .sidebar .line-2 {
+  opacity: 0;
+}
+
+.checkbox:checked ~ .sidebar .line-3 {
+  transform: rotate(405deg) translate(-5px, -6px);
+  width: 2.5re;
+}
+
+.crown {
+  width: 80px;
+  height: 80px;
+  background: url(../img/crown.png) center no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+/* header */
+.header {
+  margin-left: 8rem;
+  height: 100vh; /*what is vh*/
+  background: linear-gradient(to top, rgba(0, 0, 0.6), rgba(0, 0, 0, 0.5)),
+    url(../img/header-1.jpeg) center no-repeat;
+  background-size: cover;
+}
+
+.brand {
+  display: flex;
+  cursor: pointer;
+}
+
+.hotel-heading {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 400;
+  color: #deaa86;
+  letter-spacing: 0.2rem;
+}
+
+.banner {
+  color: #ddd;
+  height: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-heading {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  animation: anim 2s;
+}
+
+.banner-paragraph {
+  font-size: 3.5rem;
+  font-weight: 300;
+  animation: anim 1.5s .5s backwards;
+}
+
+.banner-button {
+  width: 21rem;
+  padding: 1.2rem 2rem;
+  font-size: 2rem;
+  color: #333;
+  letter-spacing: 0.1rem;
+  border: none;
+  border-radius: 10rem;
+  outline: none;
+  background: linear-gradient(to right, gold, goldenrod);
+  cursor: pointer;
+  animation: anim 1s 1s backwards;
+}
+
+.banner-button:hover {
+  background: linear-gradient(to left, gold, goldenrod);
+}
+
+.banner-button:active {
+  transform: translateY(0.2rem);
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+/* end of header */
